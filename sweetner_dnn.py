@@ -23,18 +23,18 @@ data_a=_data[:,1:]
 # data_norm=preprocessing.MinMaxScaler().fit_transform(data_a)
 data_norm=data_a
 
-_y=_data[:,:1]
-_y=np.where(_y=='Sweet',1,_y)
-_y=np.where(_y=='Non-sweet',0,_y)
+dy=_data[:,:1]
+dy=np.where(dy=='Sweet',1,dy)
+dy=np.where(dy=='Non-sweet',0,dy)
 
-n=_y.shape[0]
-n=int(n*0.7)
+n = data_norm.shape[0]
+n = int(n*0.7)
 
 x_train=data_norm[:n,:num_data]
 x_test=data_norm[n:,:num_data]
 
-y_train=_y[:n,:]
-y_test=_y[n:,:]
+y_train=dy[:n,:]
+y_test=dy[n:,:]
 
 
 model = Sequential()

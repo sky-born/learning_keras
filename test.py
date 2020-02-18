@@ -1,19 +1,18 @@
-import pandas as pd
-import numpy as np
+import matplotlib.pyplot as plt
 
 
-save_folder_path = "C:/ML_2020/2.sweetness/Datas/"
-data = pd.read_csv(save_folder_path + 'sweetness_MD_already.csv')
-_data=data.iloc[:,1:].values
-np.random.shuffle(_data)
-data_a=_data[:,1:]
-# data_norm=preprocessing.MinMaxScaler().fit_transform(data_a)
-data_norm=data_a
+plt.subplot(211)
+plt.plot([1, 2, 3], label="test1")
+plt.plot([3, 2, 1], label="test2")
+# Place a legend above this subplot, expanding itself to
+# fully use the given bounding box.
+plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left',
+           ncol=2, mode="expand", borderaxespad=0.)
 
-_y=_data[:,:1]
-_y=np.where(_y=='Sweet',1,_y)
-_y=np.where(_y=='Non-sweet',0,_y)
+plt.subplot(223)
+plt.plot([1, 2, 3], label="test1")
+plt.plot([3, 2, 1], label="test2")
+# Place a legend to the right of this smaller subplot.
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
 
-n=_y.shape[0]
-n=int(n*0.7)
-print(n)
+plt.show()
