@@ -37,7 +37,7 @@ seq.add(Conv3D(filters=1, kernel_size=(3, 3, 3),
                activation='sigmoid',
                padding='same', data_format='channels_last'))
 seq.compile(loss='binary_crossentropy', optimizer='adadelta')
-
+seq.summary()
 
 # Artificial data generation:
 # Generate movies with 3 to 7 moving squares inside.
