@@ -45,7 +45,7 @@ import numpy as np
 np.random.seed(1337)
 num_classes = 10
 
-
+# in: latent size. output: Model([latent, image_class], fake_image)
 def build_generator(latent_size):
     # we will map a pair of (z, L), where z is a latent vector and L is a
     # label drawn from P_c, to image space (..., 28, 28, 1)
@@ -88,6 +88,7 @@ def build_generator(latent_size):
     return Model([latent, image_class], fake_image)
 
 
+# output: Model(image, [fake, aux])   //fake= sigmoid 0 to 1, aux= dense 10 -> probability of 0 to 9
 def build_discriminator():
     # build a relatively standard conv net, with LeakyReLUs as suggested in
     # the reference paper

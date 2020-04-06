@@ -3,3 +3,9 @@
 
 #all .out files
 *.out
+
+#all hdf5 files
+*.hdf5
+
+#all png files
+*.png
